@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>MavenMultiModules</title>
+</h:head>
+<h:body>
+	<h1>Welcome to Java EE !</h1>
+	<h2>Multi modules maven project</h2>
+	<hr align="center" width="80%" />
+	
+	<h3>Default saved entity (of type ApplicationEntity)</h3>
+	<br/>
+	<p:panelGrid columns="2" id="dataGrid">
+		<p:outputLabel>Application name : </p:outputLabel>
+		<p:outputLabel>#{demoController.appDataViewModel.name}</p:outputLabel>
+		
+		<p:outputLabel>Application description : </p:outputLabel>
+		<p:outputLabel>#{demoController.appDataViewModel.description}</p:outputLabel>
+		
+		<p:outputLabel>Creation date : </p:outputLabel>
+		<p:outputLabel style="font-style: italic;">
+			Created at #{demoController.appDataViewModel.creationDate}
+		</p:outputLabel>
+		<span></span>
+		<h:form id="saveForm">
+			<p:commandButton value="Save new" action="#{demoController.saveNew()}" update="dataGrid"/>
+		</h:form>
+	</p:panelGrid>
+	
+</h:body>
+</html>
