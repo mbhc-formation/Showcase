@@ -1,7 +1,9 @@
 # Showcase
   Project for JPA Relations showcase.
   <br>
-  Used relations :
+  <b>Used relations</b> :
   <br>
-    - One to one : uni and bi directionnal example
-    - One to many : uni and bi directionnal example
+  <ul>
+    <li>One to one : uni and bi directionnal example</li>
+    <li>One to many (and one to one) : uni and bi directionnal example</li>
+  </ul>
