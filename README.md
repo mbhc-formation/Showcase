@@ -29,7 +29,6 @@
   Original kata can be found here : 
   <br>
   Kata : https://kata-log.rocks/tell-dont-ask-kata  
-  <br>
   Original Code : https://github.com/racingDeveloper/tell-dont-ask-kata
     
   <b>There is no main function but you can run the example from the unit tests</b>
