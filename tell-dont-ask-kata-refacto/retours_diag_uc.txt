@@ -1,0 +1,51 @@
+notes 
+
+------------------------------
+
+	Acteurs : 
+		Gest. projet ok
+		Visiteur ok
+		Exposant ok 
+		peut on (considérer le rôle utilisateur et modérateur/conseiller) ??
+		
+		
+
+ - Regroupements de use cases
+ ******************************
+ 
+	le regroupement permet d'avoir de grandes familles d'actions et de 
+	relier le "se connecter" aux familles non pas aux 
+	actions feuilles
+	
+	on pourra rajouter des relations d'inclusion/extension une fois le diagramme optimisé
+	
+	
+	UC 1 ; Gérer les emplacements (orange et vert)
+		- annuler un ou plusieurs emplacements
+		- réserver un emplacement / espace ?
+		
+	UC 2 : Gérer les evts de type Salon (rouge)
+		- Créer / modifier / supprimer informations du salon
+		- conulter les infos d'un salon : rechercher un / rechercher tous / rechercher par critères
+		- 
+		
+	UC 3 : Gérer les réservations (un peu de tout)
+		- Payer / confirmer paiement de réservations
+		- annuation / remboursement 
+		- 
+		
+	Autres 
+		- Gestion des commandes : gestion classique des commandes (violet)
+			- ajout / modification / annuler / recherche / générer devis ou facture
+			
+		
+		- Traitement des Réclamations : (bleu)
+			- déposer/suivre pour any user , traiter (pour le modérateur/admin)
+		
+		- Traitemnt global de Paiements : (gris)
+			- valider paiement (admin ou modérateur ou client ?)
+			- rembourser un paiement
+			- consultation et recherche 
+			- gestion des factures 
+			- reconciliation (comptes mensuels ? trimesriels ? = stats)
+			
