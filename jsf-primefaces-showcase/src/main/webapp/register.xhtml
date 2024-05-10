@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:p="http://primefaces.org/ui" lang="en"> 
+
+<h:head>
+	<title>Register</title>
+	<h:outputStylesheet library="css" name="main/mainStyle.css" />
+</h:head> 
+<body> 
+	
+	<h1>Java EE :: JSF / Primefaces Showcase :: Register User</h1>
+	<hr />
+	<style>
+		.registerHeaderGrid.ui-panelgrid>*>tr,
+		.registerHeaderGrid.ui-panelgrid .ui-panelgrid-cell {
+		    border: none;
+		}
+	</style>
+	<h:form id="registerForm">
+		<p:panelGrid columns="3" styleClass="registerHeaderGrid" id="registerPanelGrid">
+		
+			<p:outputLabel class="outputLabel" value="First name :" a:placeholder=""/>
+			<p:inputText id="firstNameInput" size="20" value="#{registerUserController.userForm.profile.firstName}" />
+			<p:watermark for="firstNameInput" value="Enter your first name" id="firstNameWatermark"/>
+			
+			<p:outputLabel class="outputLabel" value="Last name :" a:placeholder="Enter your last name"/>
+			<p:inputText id="lastNameInput" size="20" value="#{registerUserController.userForm.profile.lastName}" />
+			<p:watermark for="lastNameInput" value="Enter your last name" id="lastNameWatermark"/>
+			
+			<p:outputLabel class="outputLabel" value="Email :" a:placeholder="Enter a valid email"/>
+			<p:inputText id="emailInput" size="30" value="#{registerUserController.userForm.details.email}" />
+			<p:watermark for="emailInput" value="Enter your email" id="emailWatermark"/>
+			
+			<p:outputLabel class="outputLabel" value="Password :"/>
+			<p:password id="passwordInput" size="20" 
+				value="#{registerUserController.userForm.details.password}" 
+				toggleMask="true" redisplay="true" feedback="true" />
+			<p:watermark for="passwordInput" value="Enter your password" id="passwordWatermark"/>
+			
+			<p:outputLabel class="outputLabel" value="Image file :" />
+			<p:fileUpload listener="#{registerUserController.uploadFile}" mode="advanced" dragDropSupport="false" />
+			
+			<span></span>
+			<p:commandButton value="Register me" action="#{registerUserController.register()}" update="registerPanelGrid"/>
+		</p:panelGrid>
+	</h:form>
+		
+	<p:link outcome="index" value="Back to home" />
+	
+</body> 
+</html>

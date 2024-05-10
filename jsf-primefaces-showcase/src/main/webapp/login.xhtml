@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:p="http://primefaces.org/ui" lang="en"> 
+
+<h:head>
+	<title>TP JSF Components :: Login</title>
+	<h:outputStylesheet library="css" name="main/mainStyle.css" />
+</h:head> 
+<body> 
+	<style>
+		.registerHeaderGrid.ui-panelgrid>*>tr,
+		.registerHeaderGrid.ui-panelgrid .ui-panelgrid-cell {
+		    border: none;
+		}
+	</style>
+	
+	<h1>Java EE :: JSF / Primefaces Showcase :: Login</h1>
+	<hr />
+	<h:form>
+		<p:panelGrid columns="3" styleClass="registerHeaderGrid">
+			<p:outputLabel class="outputLabel" value="Email :" />
+			<p:inputText id="emailInput" size="30" />
+			<p:watermark for="emailInput" value="Enter your email" id="emailWatermark"/>
+			
+			<p:outputLabel class="outputLabel" value="Password :"/>
+			<p:password id="passwordInput" size="20" toggleMask="true" redisplay="true" feedback="true" />
+			<p:watermark for="passwordInput" value="Enter your password" id="passwordWatermark"/>
+			
+			<span></span>
+			<p:commandButton value="Login" />
+			
+		</p:panelGrid>
+		<p:link outcome="index" value="Back to home" />
+	</h:form>
+</body> 
+</html>
