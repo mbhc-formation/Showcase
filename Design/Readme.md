@@ -1,4 +1,5 @@
-tell-dont-ask-kata-refacto : a sample project showing refactoring of the tell don't ask kata.
+<b>tell-dont-ask-kata-refacto</b>
+Java project showing presenting an enhanced solution and code refactoring of the tell don't ask kata.
 
 Original kata can be found here :
 Kata : https://kata-log.rocks/tell-dont-ask-kata
