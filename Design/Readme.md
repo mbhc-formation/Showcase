@@ -1,4 +1,5 @@
 <b>tell-dont-ask-kata-refacto</b>
+
 Java project showing presenting an enhanced solution and code refactoring of the tell don't ask kata.
 
 Original kata can be found here :
