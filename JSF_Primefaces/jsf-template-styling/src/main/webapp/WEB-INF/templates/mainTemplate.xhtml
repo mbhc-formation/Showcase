@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+	
+<h:head>
+	<title>JSF Templating and styling</title>
+	<h:outputStylesheet library="css" name="main/mainStyle.css" />
+</h:head>
+
+<h:body>
+	
+	<!-- Common Header -->
+	<ui:insert name="header">
+		<ui:include src="mainHeader.xhtml" />
+	</ui:insert>
+
+	<!-- Pages content (variable) -->
+	<ui:insert name="content">
+		<!-- this content will be replaced dynamically --> 
+	</ui:insert>
+	
+	<!-- Common Footer -->
+	<ui:insert name="footer" >
+		<ui:include src="mainFooter.xhtml" />
+	</ui:insert>
+
+</h:body>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui" lang="en">
+
+	<ui:composition template="WEB-INF/templates/mainTemplate.xhtml">
+	
+		<ui:define name="content">
+		
+			<h1>Welcome !</h1>
+			<p>This is an example of JSF Templating and styling</p>
+			
+			<h:link outcome="otherEmptyPage" value="Another empty page"/>
+			
+	        <h:panelGrid columns="5" cellspacing="20">
+	        	<h:graphicImage widh="100px;" height="100px;" url="#{resource['images:logo_javaee.png']}" alt="Java EE Logo (not found)"/>
+            	<h:graphicImage widh="100px;" height="100px;" url="#{resource['images:technos/wildfly-jboss.png']}" alt="Wildfly Application Server Logo (not found)"/>
+            	<h:graphicImage widh="100px;" height="100px;" url="#{resource['images:technos/jsf-logo.png']}" alt="JavaServer Faces Logo (not found)"/>
+            	<h:graphicImage widh="100px;" height="100px;" url="#{resource['images:technos/jpa200.png']}" alt="Java Persistence API Logo (not found)"/>
+            	<h:graphicImage widh="100px;" height="100px;" url="#{resource['images:technos/mysql-5-logo-png-transparent.png']}" alt="MySQL 5 Logo (not found)"/>
+			</h:panelGrid>
+		</ui:define>
+			
+	</ui:composition>
+</html>
