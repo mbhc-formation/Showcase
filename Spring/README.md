@@ -11,6 +11,7 @@ Dive into this curated selection of showcase projects to discover the power and 
 <b>hello-world-rest-service</b> : following the guide https://spring.io/guides/gs/rest-service
 
 A simple hello world rest application that will greet the user using his name or a default value.
+
 --------------------------------------------------------------------------------------------------------------------------------
 
 <b>consuming-rest-service</b> : following the guide https://spring.io/guides/gs/consuming-rest
