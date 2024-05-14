@@ -21,4 +21,12 @@
   Each program is included in its own package and in each package there is a simple XXXXXXMain class to test the code.
   <br>
   In addition, for each program there is a set of unit tests using some good practices and techniques for simple java code testing.
+  <br>
+  Such as : 
+  <ul>
+    <li>Libraries used are : Jupiter 5 and AssertJ 3</li>
+    <li>Different assertions (equality, boolean verification), etc ...</li>
+    <li>Exceptions testing</li>
+    <li>Usage of nested classes to organize test cases</li>
+  </ul>
   
