@@ -110,9 +110,13 @@ public class ProductsParserTest {
 		List<Product> parsedProducts = productsParserUnderTest.loadProductsFromContent(content);
 		
 		// Assert
-		assertThat(parsedProducts).isNotEmpty();
-		assertThat(parsedProducts.size()).isEqualTo(expectedProducts.size());
-		assertThatList(parsedProducts).usingRecursiveFieldByFieldElementComparator().containsAll(expectedProducts);
+		assertThat(parsedProducts)
+			.isNotEmpty()
+			.hasSize(expectedProducts.size());
+		
+		assertThatList(parsedProducts)
+			.usingRecursiveFieldByFieldElementComparator()
+			.containsAll(expectedProducts);
 	}
 	
 }

@@ -5,7 +5,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.util.stream.Collectors;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -40,20 +39,21 @@ public class ProductsParser {
 	 */
 	public List<Product> loadProductsFromContent(final String jsonFileContent) {
 		
-		if(jsonFileContent == null || jsonFileContent.isBlank()) return Collections.emptyList();
+		if(jsonFileContent == null || jsonFileContent.isBlank()) 
+			return Collections.emptyList();
 		
 		try {
 			return parseProductsFromContent(jsonFileContent)
 					.stream()
-					.map(obj -> (Product) obj)
+					.map(Product.class::cast)
 					.filter(product -> !productObjectReflectionHelper.objectWithOnlyNullFieldsValues(product))
-					.collect(Collectors.toList());
+					.toList();
 			
 		} catch (IOException e) {
 			LOGGER.log(Level.SEVERE, e.getMessage(), e);
-			// In case of any error
-			return Collections.emptyList();
 		}
+		
+		return Collections.emptyList();
 	}
 
 	/**
@@ -62,15 +62,15 @@ public class ProductsParser {
 	 * @return
 	 * @throws IOException 
 	 */
-	private List<Object> parseProductsFromContent(final String content) throws IOException {
+	private List<Product> parseProductsFromContent(final String content) throws IOException {
 		return objectMapper
 				.reader()
 				.forType(Product.class)
 				.readValues(content)
 				.readAll()
 				.stream()
-				.map(obj -> (Product) obj)
-				.collect(Collectors.toList());
+				.map(Product.class::cast)
+				.toList();
 	}
 
 	
