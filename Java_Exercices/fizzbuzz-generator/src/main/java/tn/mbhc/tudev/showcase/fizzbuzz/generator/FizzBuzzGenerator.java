@@ -1,6 +1,8 @@
 package tn.mbhc.tudev.showcase.fizzbuzz.generator;
 
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.stream.Stream;
 
 import tn.mbhc.tudev.showcase.fizzbuzz.generator.core.Replacement;
@@ -10,8 +12,10 @@ import tn.mbhc.tudev.showcase.fizzbuzz.generator.exceptions.InvalidSequenceInter
 import tn.mbhc.tudev.showcase.fizzbuzz.generator.exceptions.NoReplacementForSequenceException;
 import tn.mbhc.tudev.showcase.fizzbuzz.generator.util.Utils;
 
-public class FizzBuzzGenerator {
+class FizzBuzzGenerator {
 
+	private static final Logger LOGGER = Logger.getLogger(FizzBuzzGenerator.class.getSimpleName());
+	
 	private static final String SPACE = " ";
 	private SequenceReplacementManager sequenceReplacementManager = new SequenceReplacementManager();
 
@@ -26,7 +30,7 @@ public class FizzBuzzGenerator {
 	 *                                          interval.
 	 * @throws NoReplacementForSequenceException If no replacement for sequence values are configured. See {@link #withReplacement(Replacement)}.
 	 */
-	public String generate(int from, int to) throws InvalidSequenceIntervalException, NoReplacementForSequenceException {
+	String generate(int from, int to) throws InvalidSequenceIntervalException, NoReplacementForSequenceException {
 		if (from > to)
 			throw new InvalidSequenceIntervalException(from, to);
 		
@@ -46,7 +50,7 @@ public class FizzBuzzGenerator {
 	 * </ul>
 	 * @return
 	 */
-	public FizzBuzzGenerator withDefaultReplacements() {
+	FizzBuzzGenerator withDefaultReplacements() {
 		sequenceReplacementManager.addReplacement(new ReplacementImpl(3, "Fizz", 1));
 		sequenceReplacementManager.addReplacement(new ReplacementImpl(5, "Buzz", 1));
 		sequenceReplacementManager.addReplacement(new ReplacementImpl(15, "FizzBuzz", 0));
@@ -59,7 +63,7 @@ public class FizzBuzzGenerator {
 	 * @param replacement
 	 * @return
 	 */
-	public FizzBuzzGenerator withReplacement(final Replacement replacement) {
+	FizzBuzzGenerator withReplacement(final Replacement replacement) {
 		sequenceReplacementManager.addReplacement(replacement);
 		return this;
 	}
@@ -70,14 +74,28 @@ public class FizzBuzzGenerator {
 	
 	private String replace(int from, int to) {
 		Stream<Integer> integerRangeStream = Utils.integerRangeStream(from, to);
-		List<String> elements = integerRangeStream.map(this::replaceOrDefault).toList();
-		return String.join(SPACE, elements).stripTrailing();
+		List<String> elements = integerRangeStream
+				.map(this::replaceOrDefault)
+				.toList();
+		return String.join(SPACE, elements)
+				.stripTrailing();
 	}
 
+	/**
+	 * Replace the given value by its replacement, or by empty string by default.
+	 * 
+	 * @param current
+	 * @return
+	 */
 	private String replaceOrDefault(final Integer current) {
-		return sequenceReplacementManager.hasReplacemnt(current)
-				? sequenceReplacementManager.replace(current)
-						: String.valueOf(current);
+		try {
+			return sequenceReplacementManager.hasReplacemnt(current)
+					? sequenceReplacementManager.replace(current)
+							: String.valueOf(current);
+		} catch (NoReplacementForSequenceException e) {
+			LOGGER.log(Level.SEVERE, () -> "No replacement for value : " + current);
+		}
+		return "";
 	}
 
 }
