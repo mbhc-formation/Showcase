@@ -21,6 +21,10 @@ public class SequenceReplacementManager {
 		return getReplacement(value).get().getReplacement();
 	}
 
+	public boolean hasReplacemnts() {
+		return !this.replacements.isEmpty();
+	}
+	
 	public boolean hasReplacemnt(final Integer value) {
 		return getReplacement(value).isPresent() && isReplaceable(value, getReplacement(value).get());
 	}
@@ -30,7 +34,7 @@ public class SequenceReplacementManager {
 	}
 
 	private Stream<Replacement> mapToReplacement() {
-		return entryStream().map(entry -> entry.getValue());
+		return entryStream().map(Entry::getValue);
 	}
 
 	private Stream<Entry<Integer, Replacement>> entryStream() {
